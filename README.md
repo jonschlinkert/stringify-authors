@@ -1,6 +1,6 @@
 # stringify-authors [![NPM version](https://badge.fury.io/js/stringify-authors.svg)](http://badge.fury.io/js/stringify-authors)
 
-> Stringify an array or object of authors. Useful for adding authors, maintainers or contribuors to documentation or a readme.
+> Stringify an array or object of authors. Useful for adding authors, maintainers or contributors to documentation or a readme.
 
 ## Install with [npm](npmjs.org)
 
