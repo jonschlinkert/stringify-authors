@@ -1,0 +1,37 @@
+{
+  "name": "stringify-authors",
+  "description": "Stringify an array or object of authors. Useful for adding authors, maintainers or contributors to documentation or a readme.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/stringify-authors",
+  "author": {
+    "name": "Jon Schlinkert",
+    "url": "https://github.com/jonschlinkert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonschlinkert/stringify-authors.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/stringify-authors/issues"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/jonschlinkert/stringify-authors/blob/master/LICENSE-MIT"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": [],
+  "dependencies": {
+    "filter-object": "^1.0.0",
+    "stringify-author": "^0.1.1"
+  }
+}
