@@ -8,18 +8,21 @@
 'use strict';
 
 var stringify = require('stringify-author');
-var filter = require('filter-object');
+var omit = require('object.omit');
 
 module.exports = function stringifyAuthors(authors, options) {
-  if (authors !== 'object' && options && options.strict) {
+  if (!authors || (!Array.isArray(authors) && typeof authors !== 'object')) {
     throw new Error('stringify-authors expects an object or array.');
   }
 
   authors = !Array.isArray(authors) ? [authors] : authors;
+  options = options || {};
+  var res = [];
 
-  var res = authors.map(function(ele) {
-    return stringify(filter(ele, options && options.filter));
-  });
-
-  return res.join((options && options.sep) || ', ');
+  var len = authors.length, i = -1;
+  while (++i < len) {
+    var author = omit(authors[i], options.omit);
+    res.push(stringify(author));
+  }
+  return res;
 };
