@@ -7,8 +7,15 @@
 
 'use strict';
 
+require('mocha');
 var should = require('should');
-var stringify = require('./');
+var toString = require('./');
+
+// easier to test this way
+function stringify(authors, opts) {
+  var res = toString(authors, opts);
+  return res.join(', ');
+}
 
 describe('options:', function () {
   it('should throw an error in strict mode:', function () {
@@ -17,18 +24,12 @@ describe('options:', function () {
     }).should.throw('stringify-authors expects an object or array.');
   });
 
-  it('should use a custom separator:', function () {
-    var authors = [{name: 'Jon Schlinkert'}, {name: 'Brian Woodward'}];
-    stringify(authors, {sep: '\n'}).should.equal('Jon Schlinkert\nBrian Woodward');
-  });
-
-  it('should filter using glob patterns:', function () {
+  it('should omit the given properties:', function () {
     var authors = [{name: 'Jon Schlinkert', email: 'jon.schlinkert@sellside.com', url: 'https://github.com/jonschlinkert'}, {name: 'Brian Woodward', url: 'https://github.com/doowb', email: 'brian.woodward@sellside.com'}];
 
-    stringify(authors, {filter: 'name'}).should.equal('Jon Schlinkert, Brian Woodward');
-    stringify(authors, {filter: 'url'}).should.equal('(https://github.com/jonschlinkert), (https://github.com/doowb)');
-    stringify(authors, {filter: '{name,url}'}).should.equal('Jon Schlinkert (https://github.com/jonschlinkert), Brian Woodward (https://github.com/doowb)');
-    stringify(authors, {filter: '{name,url}', sep: '\n'}).should.equal('Jon Schlinkert (https://github.com/jonschlinkert)\nBrian Woodward (https://github.com/doowb)');
+    stringify(authors, {omit: ['email', 'url']}).should.equal('Jon Schlinkert, Brian Woodward');
+    stringify(authors, {omit: ['email', 'name']}).should.equal('(https://github.com/jonschlinkert), (https://github.com/doowb)');
+    stringify(authors, {omit: ['email']}).should.equal('Jon Schlinkert (https://github.com/jonschlinkert), Brian Woodward (https://github.com/doowb)');
   });
 });
 
