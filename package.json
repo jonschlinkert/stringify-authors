@@ -1,37 +1,48 @@
 {
   "name": "stringify-authors",
-  "description": "Stringify an array or object of authors. Useful for adding authors, maintainers or contributors to documentation or a readme.",
-  "version": "0.1.0",
+  "description": "Converts an author object or array of author objects into an array of strings. Useful for adding authors, maintainers or contributors to documentation, package.json or a readme.",
+  "version": "0.2.0",
   "homepage": "https://github.com/jonschlinkert/stringify-authors",
-  "author": {
-    "name": "Jon Schlinkert",
-    "url": "https://github.com/jonschlinkert"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jonschlinkert/stringify-authors.git"
-  },
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/stringify-authors",
   "bugs": {
     "url": "https://github.com/jonschlinkert/stringify-authors/issues"
   },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/jonschlinkert/stringify-authors/blob/master/LICENSE-MIT"
-  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
   "main": "index.js",
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "mocha"
+  },
+  "dependencies": {
+    "object.omit": "^2.0.0",
+    "stringify-author": "^0.1.1"
   },
   "devDependencies": {
     "mocha": "*",
     "should": "*"
   },
-  "keywords": [],
-  "dependencies": {
-    "filter-object": "^1.0.0",
-    "stringify-author": "^0.1.1"
+  "keywords": [
+    "author",
+    "authors",
+    "contributor",
+    "contributors",
+    "person",
+    "stringify"
+  ],
+  "verb": {
+    "related": {
+      "list": [
+        "stringify-author",
+        "parse-author",
+        "parse-authors",
+        "author-regex"
+      ]
+    }
   }
 }
